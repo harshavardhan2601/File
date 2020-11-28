@@ -1,0 +1,17 @@
+<form [formGroup]="FileForm" (ngSubmit)="onSubmit()">
+    <div class="row mt-5">
+        <div class="col-md-8" >
+            <label class ='file-input' for='file-input'>
+            </label>
+            <input  class='hide' id='file-input' type='file' formControlName='picture' (change)='uploadFile($event)' />
+            <span id="picture_preview_span" *ngIf="isImageSaved" >
+                <img name="proof_of_identification_preview" src="{{cardImageBase64}}" width="100px">
+            </span>
+            <input id="picture_hidden" formControlName="picture_hidden" type="hidden" ngModel= {{cardImageBase64}}>
+        </div>
+        <div class="col-md-6 mt-5">
+            <input type="submit" class="btn btn-info" value="submit">
+        </div>
+    </div>
+    
+</form>
